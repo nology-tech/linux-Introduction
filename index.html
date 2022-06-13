@@ -69,11 +69,27 @@
 <p>Virtual Box runs on all major operating systems. </p>
 <p>You can download Virtual Box by visiting and downloading the appropriate version for your OS.</p>
 <p><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">https://www.virtualbox.org/wiki/Downloads</a></p>
-<p>Paste the following annotation into your main Class file just above your class.</p>
-<pre><code>@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration</code></pre>
-<p>Navigate to pom.xml and comment out the spring-boot-starter-data-jpa dependency.</p>
-<p class="image-container"><img style="width: 624.00px" src="img/43b23116fe2ea790.png"></p>
-<p>Run the application and a Spring Boot server should run successfully. Navigate to localhost:8080 to confirm.</p>
+<p>When opening Virtual Box for the first time, it should look similar to the image below. There may some variation depending on which OS you are using. </p>
+<p class="image-container"><img style="width: 624.00px" src="img/d926bd667135212.png"></p>
+<p>To create a new VM (Virtual Machine), we need to click new. </p>
+<p>Select the below settings, with the exception of &#34;Machine Folder&#34; which should reflect a file path for your own machine. </p>
+<p class="image-container"><img style="width: 624.00px" src="img/e9e3482d73243c0e.png"></p>
+<p>We will need to allocate an amount of RAM for the virtual machine to use, this will vary depending on how much you have on your computer, but I would recommend at least 4096MB, if possible. </p>
+<p>We also need to allocate some storage space for our virtual machine to use. Once again This will depend on the storage space you have available but I would recommend at least 50GB for our purposes. Virtual Box will ask you which type of storage we want to use, the options it gives us are essentially just different formats. We will be using VDI (VirtualBox Disk Image). </p>
+<p>We also have the option of choosing between Dynamically sized storage and Fixed size storage. VirtualBox explains the difference, we will be using Dynamically Sized. </p>
+<p>We can now see that VirtualBox has created our virtual machine for us. </p>
+<p class="image-container"><img style="width: 624.00px" src="img/2afed4afade8fdeb.png"></p>
+<p>There are a couple of settings we need to change. You can access settings by clicking the settings icon. </p>
+<p>We are going to change the following settings.</p>
+<ul>
+<li>General -&gt; Advanced -&gt; Shared Clipboard -&gt; Bidirectional</li>
+<li>System -&gt; Processor -&gt; Processors -&gt; 2CPU</li>
+<li>Display -&gt; Screen -&gt; Enable 3D Acceleration</li>
+<li>Storage, This is where we will add the Ubuntu image we downloaded earlier <br>Select IDE -&gt; Empty -&gt; Press the disk icon on the right hand side -&gt; Choose a disk file -&gt; Select the Ubuntu file we downloaded earlier. </li>
+</ul>
+<p>Once you&#39;re happy with your changes hit the ok button. </p>
+<p>To start the VM, press the green start button. </p>
+<p>.</p>
 
 
       </google-codelab-step>
@@ -81,7 +97,9 @@
       <google-codelab-step label="Constructors" duration="0">
         <p>When we create an instance we are actually invoking something called the constructor. Every Java Class has a constructor even if we haven&#39;t made one, that&#39;s because the JDK automatically gives each Class a parameterless constructor. The issue we currently have is no matter how many instances we create, their properties are all going to have the same values. By creating our own constructor, we can specify these values when creating an instance.</p>
 <h3 is-upgraded><strong>Creating our own constructor </strong></h3>
-<pre><code>public class Person {
+<pre><code>public clas</code></pre>
+<p class="image-container"><img style="width: 610.00px" src="img/43b23116fe2ea790.png"></p>
+<pre><code>s Person {
    private String name;
    private int age;
 
