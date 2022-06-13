@@ -1,0 +1,179 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Linux Introduction</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="linux-introduction"
+                  title="Linux Introduction"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="The History of Linux" duration="0">
+        <h3 is-upgraded><strong>What is linux?</strong></h3>
+<p>Linux is an operating system used on mobile devices (Android), the cloud, embedded systems, desktops and servers. An operating system is a bit of software that manages the connection between software and hardware.</p>
+<p>Linux is based on the unix operating system which was developed in 1969. Unix was a proprietary operating system and not open source, Linus Torvalds developed the Linux kernel as an open source alternative and released the first version in 1991. Linux is released under a General Public Licence, which means users are free to run, study, share and modify the software. </p>
+<h3 is-upgraded><strong>Linux Kernel</strong></h3>
+<p>A kernel is the part of an operating system that communicates with the hardware. It is responsible for  managing the resources of a computer (the CPU, storage etc). The Linux kernel is based on the original Unix Kernel. </p>
+<h3 is-upgraded><strong>Distributions </strong></h3>
+<p>A Linux distribution is an operating system package containing the Linux kernel and a package management system (a way of accessing software). There are many different distributions, some of which target particular groups of users such as education, enterprise or developers. </p>
+<p>Some of the most popular distributions are: </p>
+<ul>
+<li>Ubuntu</li>
+<li>RedHat </li>
+<li>Debian </li>
+<li>Fedora </li>
+</ul>
+<p>But there are many more.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Ubuntu" duration="0">
+        <p>Ubuntu is the distribution we will be using for this course. It&#39;s great for beginners but also provides all the tools we need for both Software Development and Cloud Engineering.</p>
+<p>Ubunutu comes in three different forms</p>
+<ul>
+<li>Desktop </li>
+<li>Server</li>
+<li>IoT</li>
+</ul>
+<p>We will be using the desktop version of ubuntu. It comes with the Linux kernel, a Graphic User Interface, free open source software and access to a package manager. </p>
+<h3 is-upgraded><strong>Installing Ubuntu</strong></h3>
+<p><a href="https://ubuntu.com/#download" target="_blank">https://ubuntu.com/#download</a></p>
+<p>Ubuntu can be downloaded at the above link. </p>
+<p>There are many different versions of Ubunutu but we will be using the current LTS (Long Term Support). The LTS versions of Ubuntu are the most stable and are given security updates by canonical (the creators of Ubuntu) for a longer time compared to the non LTS versions.</p>
+<p>The current LTS version is 22.04. </p>
+<p>There are multiple ways to install Ubuntu once we have downloaded it. </p>
+<p>We could install it as our primary Operating System, similar to how you currently have Windows or Mac OS installed, however that would mean either creating a partition on your hard drive or completing replacing your current operating system. </p>
+<p>For ease of use, we will be running Ubuntu in what&#39;s known as a virtual machine.</p>
+<h3 is-upgraded><strong>Virtual Box</strong></h3>
+<p>Virtual Box is a piece of software that we can use to create a virtual machine. You can think of a virtual machine as a virtual computer running inside your actual computer. </p>
+<p>Virtual Box runs on all major operating systems. </p>
+<p>You can download Virtual Box by visiting and downloading the appropriate version for your OS.</p>
+<p><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">https://www.virtualbox.org/wiki/Downloads</a></p>
+<p>Paste the following annotation into your main Class file just above your class.</p>
+<pre><code>@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration</code></pre>
+<p>Navigate to pom.xml and comment out the spring-boot-starter-data-jpa dependency.</p>
+<p class="image-container"><img style="width: 624.00px" src="img/43b23116fe2ea790.png"></p>
+<p>Run the application and a Spring Boot server should run successfully. Navigate to localhost:8080 to confirm.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Constructors" duration="0">
+        <p>When we create an instance we are actually invoking something called the constructor. Every Java Class has a constructor even if we haven&#39;t made one, that&#39;s because the JDK automatically gives each Class a parameterless constructor. The issue we currently have is no matter how many instances we create, their properties are all going to have the same values. By creating our own constructor, we can specify these values when creating an instance.</p>
+<h3 is-upgraded><strong>Creating our own constructor </strong></h3>
+<pre><code>public class Person {
+   private String name;
+   private int age;
+
+   public Person(String name, int age) {
+       this.name = name;
+       this.age = age;
+   }</code></pre>
+<p>To create a constructor we must declare a method that has the same name as our class. It is essential that we use the same name. The method must also be public. The parameters for the method should be the properties that we wish to set the values of when creating an Object, in this example i&#39;ve used name and age. Within the constructor you&#39;ll notice we&#39;ve used the &#34;this&#34; keyword. The &#34;this&#34; keyword refers to the particular instance we&#39;re calling the constructor on. In other words &#34;set THIS instance&#39;s name to be equal to the name that will be passed in when creating a new object&#34; </p>
+<p>You will also notice that when i&#39;ve initially declared our properties I haven&#39;t assigned them values, that&#39;s because the values will be set when we create our instances and thus invoke the constructor method.</p>
+<h3 is-upgraded><strong>Invoking the constructor</strong></h3>
+<p>Let&#39;s use our newly defined constructor to create an instance of our Class.</p>
+<pre><code>public class Main {
+
+   public static void main(String[] args) {
+      
+       Person ash = new Person(&#34;Ash&#34;, 25);
+      
+   }
+}</code></pre>
+<p>I said earlier that Person( ) invokes the constructor method so therefore it makes sense that we pass in the values we want to used in the constructor as arguments. The values of name and age will now be set to &#34;Ash&#34; and 25 respectively. The massive advantage of using a constructor in this way is we can now create many objects each with unique data. </p>
+<pre><code>Person sam = new Person(&#34;Sam&#34;, 23);</code></pre>
+<p>Here the value of name will be &#34;Sam&#34; and the value of age will be 23. Remember that Java is statically typed and the type of our arguments must match what we specified in our  parameters.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Getters and Setters" duration="0">
+        <p>Earlier we made our Class properties private, we highlighted that this was beneficial as we are able to restrict access to our data. However we still need to be able to access and even update this data. We can achieve this using getters and setters. </p>
+<h3 is-upgraded><strong>Getters</strong></h3>
+<p>A getter is a public method that returns the value of a property. This allows us to keep the property itself within the private scope but still be able to access it, without the risk of modifying its value. </p>
+<pre><code>public String getName() {
+   return name;
+}</code></pre>
+<p>The name of the method should be &#34;get&#34; followed by the name of the property. In this case, we want to return the &#34;name&#34; property, so our method is called &#34;getName&#34;. When declaring methods we need to specify what type of data will be returned, name is a String, so we specify String just before the method name. </p>
+<p>We can use this method by invoking it on an instance of the Class and it will return the value relevant to that particular instance.</p>
+<pre><code>ash.getName();</code></pre>
+<p>In this example, the getter will return &#34;Ash&#34; as that&#39;s the value for name we passed into the constructor earlier. </p>
+<pre><code>sam.getName();</code></pre>
+<p>Invoking getName( ) on the sam object will return &#34;Sam&#34;.</p>
+<h3 is-upgraded><strong>Setters</strong></h3>
+<p>A setter is a public method that updates the value of a property. You might be thinking, if we are going to update the value of a property, then what was the point in making it private? That&#39;s a great question, the massive advantage of using a setter is that we can include code within the method that controls what can happen to the value. More on this shortly. </p>
+<pre><code>public void setAge(int age) {
+   this.age = age;
+}</code></pre>
+<p>Our setter method should be called &#34;set&#34; followed by the name of the property to be set, in this case &#34;setAge&#34;. Our setter won&#39;t actually return anything so instead of specifying a return type we use void (void is used when our function carries out an action but doesn&#39;t actually need to return anything). Our setter method needs a parameter, the new value of the property. This type of this parameter must match the type it was initially declared as. </p>
+<p>As mentioned, the big advantage of using a setter method is that we can restrict the new value of the property. For example, it wouldn&#39;t make sense if age could be set to a negative number. To stop this happening we could include an if statement in our method. </p>
+<pre><code>public void setAge(int age) {
+   if (age &lt; 0) {
+       System.out.println(age + &#34; is not a valid age&#34;);
+   }
+   else {  
+       this.age = age;
+   }
+}</code></pre>
+<p>In this example, if age &lt; 0 we print a message stating the provided age is not valid. </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Overloaded Constructors" duration="0">
+        <p>Constructor overloading is a way we can have multiple constructors within a single Class. Our current constructor requires two arguments, name and age, what if we wanted to specify just one of those values and perhaps use a default value for the other, whilst still being able to use our original constructor if we wanted to create an instance which has two custom values. Well, Java allows us to do just that. </p>
+<pre><code>public class Person {
+   private String name;
+   private int age;
+
+   public Person(String name, int age) {
+       this.name = name;
+       this.age = age;
+   }
+  
+   public Person(String name) {
+       this.name = name;
+       this.age = 30;
+   }</code></pre>
+<p>Our Person Class now has two constructors, your initial reaction might be that this is going to cause some type of error as they both have the same name, well constructors always need to have the same name as the Class they belong to and these two constructors are made unique by their parameters. The first constructor takes two arguments and the second takes one. </p>
+<p>So which constructor is used when we invoke the .Person( ) method? Well that depends on how many arguments we give it. If we pass in two arguments the first constructor will run, if we pass in just the first argument, the second constructor runs. Note that in the second constructor we have manually set the value of age to be 30, this means if we create an Instance and pass in the name argument, age will be automatically set to 30. Imagine a world in which everyone was always 30!</p>
+<pre><code>Person andy = new Person(&#34;Andy&#34;);
+
+System.out.println(andy.getAge());</code></pre>
+<p>We can test this by creating a new Instance and just passing in a single argument. To confirm that this new object does in fact have an age property we can run the getAge( ) getter. </p>
+<p>We can create as many of these overloaded constructors as we like, we can even create one that doesn&#39;t take any parameters and both name and age are set to a value defined in the constructor. </p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
